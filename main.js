@@ -8,14 +8,14 @@ function getPostTitle(id) {
     const promessa = new Promise((resolve, reject) => {
         fetch(`https://dummyjson.com/posts/${id}`)
             .then(response => response.json())
-            .then(data => resolve(data))
+            .then(data => resolve(data.title))
             .catch(reject)
     })
     return promessa
 }
 
 getPostTitle(1)
-    .then(data => console.log(data))
+    .then(data => console.log('Titolo:', data))
     .catch(error => console.log(error))
 
 
